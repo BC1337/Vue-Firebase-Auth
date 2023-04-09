@@ -1,7 +1,6 @@
 <template>
     <div>
-        <h1>Feed</h1>
-        <p>This is restricted content, you should feel special. Good job =)</p>
+        <h1>Blog Feed</h1>
     </div>
 </template>
 
@@ -11,4 +10,4 @@
 
 <style lang="scss" scoped>
 
-</style>
+</style>    

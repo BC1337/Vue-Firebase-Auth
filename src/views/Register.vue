@@ -39,10 +39,12 @@ const signInWithGoogle = () => {
   }
   input {
     width: 400px;
+    height: 40px;
     margin: 10px;
     border: none;
     border-bottom: 2px solid black;
     outline: none;
+    font-size: medium;
   }
   button {
     height: 35px;

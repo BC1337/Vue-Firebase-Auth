@@ -11,6 +11,7 @@
     <router-link to="/register">Register</router-link> 
     <router-link to="/sign-in">Sign-in</router-link>
     <router-link to="/feed">Feed</router-link>
+    <router-link to="/create-blog">Create Blog</router-link>
     <button class="signout-btn" @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
   </nav>
   <router-view/>
@@ -157,7 +158,7 @@ input:checked + .slider:before {
     color: #fff;
   }
 
-  [theme='custom-dark'] h1 {
+  [theme='custom-dark'] h1, h2 {
     color: #42b983;
   }
 
@@ -167,6 +168,10 @@ input:checked + .slider:before {
 
   [theme='custom-dark'] a {
     color: #42b983;
+  }
+
+  [theme='custom-dark'] li {
+    color: #ffffff;
   }
 
   [theme='custom-dark'] nav a.router-link-active {

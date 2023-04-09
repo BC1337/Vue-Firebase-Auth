@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
 import Signin from '../views/Signin.vue'
 import Feed from '../views/Feed.vue'
+import Create from '../views/Create.vue'
 
 const routes = [
   {
@@ -28,7 +29,15 @@ const routes = [
     meta: {
       requiresAuth: true,
     }
-  }
+  },
+  {
+    path: '/create-blog',
+    name: 'Create',
+    component: Create,
+    meta: {
+      requiresAuth: true,
+    }
+  },
 ]
 
 const getCurrentUser = () => {
