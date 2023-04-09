@@ -50,7 +50,7 @@
   }
   </script>
   
-  <style>
+  <style scoped>
     .register-wrapper{
       display: flex;
       justify-content: center;
@@ -62,6 +62,7 @@
       margin: 10px;
       border: none;
       border-bottom: 2px solid black;
+      outline: none;
     }
     button {
       height: 35px;
