@@ -1,54 +1,44 @@
 <template>
-    <div>
-      <h1>Blog Feed</h1>
-      <div class="task-wrapper">
-        <form>
-          <div class="task-input">
-            <input type="text" placeholder="title of blog post..." v-model="newTaskTitle" />
-          </div>
-          <div class="task-input">
-            <textarea placeholder="blog content..." v-model="newTaskContent"></textarea>
-          </div>
-          <button @click.prevent="addTask">Submit Task</button>
-        </form>
-      </div>
-      <div class="task-output">
-        <div v-if="showBlogCard" class="blog-card">
-      <h2>{{ newTaskTitle }}</h2>
-      <p>{{ newTaskContent }}</p>
+  <div>
+    <h1>Blog Feed</h1>
+    <div class="task-wrapper">
+      <form>
+        <div class="task-input">
+          <input type="text" placeholder="title of blog post..." v-model="newTaskTitle" />
+        </div>
+        <div class="task-input">
+          <textarea placeholder="blog content..." v-model="newTaskContent"></textarea>
+        </div>
+        <button @click.prevent="addTask">Submit Task</button>
+      </form>
     </div>
+    <div class="task-output">
+      <BlogCard v-for="task in tasks" :key="id" :title="task.title" :content="task.content" />
+    </div>
+  </div>
+</template>
 
-    <div v-for="(task, index) in tasks" :key="index" class="blog-card">
-      <h2>{{ task.title }}</h2>
-      <p>{{ task.content }}</p>
-    </div>
-       
-      </div>
+<script setup>
+import { ref } from "vue";
+import BlogCard from "../components/BlogCard.vue";
 
-    </div>
-  </template>
-  
-  <script setup>
-  import { ref } from "vue";
-  import { useRouter } from 'vue-router';
-  
-  const tasks = ref([]);
-  const newTaskTitle = ref("");
-  const newTaskContent = ref("");
-  const showBlogCard = ref(false)
-  
-  const addTask = () => {
-    if (newTaskTitle.value !== "" && newTaskContent.value !== "") {
-      tasks.value.push({
-        id: tasks.value.length + 1,
-        title: newTaskTitle.value,
-        content: newTaskContent.value,
-      });
-      newTaskTitle.value = "";
-      newTaskContent.value = "";
-    }
-  };
-  </script>
+const tasks = ref([]);
+const newTaskTitle = ref("");
+const newTaskContent = ref("");
+
+
+const addTask = () => {
+  if (newTaskTitle.value !== "" && newTaskContent.value !== "") {
+    tasks.value.push({
+      id: tasks.value.length + 1,
+      title: newTaskTitle.value,
+      content: newTaskContent.value,
+    });
+    newTaskTitle.value = "";
+    newTaskContent.value = "";
+  }
+};
+</script>
   
   <style scoped>
   p {

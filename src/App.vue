@@ -1,17 +1,19 @@
 <template>
   <div class="dark-mode-wrapper">
-      <p>Dark Mode</p>
-      <label class="switch">
-        <input type="checkbox" v-model="isDark">
-        <span class="slider"></span>
-      </label>
-    </div>
+    <p>Dark Mode</p>
+    <label class="switch">
+      <input type="checkbox" v-model="isDark">
+      <span class="slider"></span>
+    </label>
+  </div>
   <nav>
     <router-link to="/">Home</router-link> 
-    <router-link to="/register">Register</router-link> 
-    <router-link to="/sign-in">Sign-in</router-link>
     <router-link to="/feed">Feed</router-link>
     <router-link to="/create-blog">Create Blog</router-link>
+    <template v-if="!isLoggedIn">
+      <router-link to="/register">Register</router-link> 
+      <router-link to="/sign-in">Sign-in</router-link>
+    </template>
     <button class="signout-btn" @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
   </nav>
   <router-view/>

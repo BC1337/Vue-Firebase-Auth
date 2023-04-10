@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Blog Feed</h1>
+        <h1>Feed</h1>
     </div>
 </template>
 
@@ -10,4 +10,4 @@
 
 <style lang="scss" scoped>
 
-</style>    
+</style>

@@ -1,8 +1,8 @@
 <template>
     <div class="register-wrapper">
       <h1>Sign In</h1>
-      <input type="text" placeholder="Email" v-model="email">
-      <input type="password" placeholder="Password" v-model="password">
+      <input type="text" placeholder="Email" v-model="email" @keydown.enter="register">
+      <input type="password" placeholder="Password" v-model="password"  @keydown.enter="register">
       <p v-if="errMsg">{{ errMsg }}</p>
       <button @click="register">Submit</button>
       <button @click="signInWithGoogle">Sign In With Google</button>

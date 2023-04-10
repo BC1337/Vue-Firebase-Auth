@@ -1,8 +1,8 @@
 <template>
   <div class="register-wrapper">
     <h1>Register An Account</h1>
-    <input type="text" placeholder="Email" v-model="email">
-    <input type="password" placeholder="Password" v-model="password">
+    <input type="text" placeholder="Email" v-model="email"  @keydown.enter="register">
+    <input type="password" placeholder="Password" v-model="password"  @keydown.enter="register">
     <button @click="register">Submit</button>
     <button @click="signInWithGoogle">Sign In With Google</button>
   </div>
