@@ -1,10 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createPinia } from 'pinia'
+import { useBlogStore } from './stores/BlogStore'
 import router from './router'
-// Import the functions you need from the SDKs you need
+
+
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -18,4 +20,14 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
-createApp(App).use(router).mount('#app')
+const pinia = createPinia()
+
+
+const app = createApp(App)
+app.use(pinia)
+
+const store = useBlogStore()
+app.provide('store', store)
+
+app.use(router)
+app.mount('#app')

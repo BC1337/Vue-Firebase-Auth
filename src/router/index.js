@@ -26,6 +26,9 @@ const routes = [
     path: '/feed',
     name: 'Feed',
     component: Feed,
+    props: {
+      tasks: []
+    },
     meta: {
       requiresAuth: true,
     }
@@ -64,7 +67,7 @@ router.beforeEach(async (to, from, next) => {
     if (await getCurrentUser()) {
       next();
   } else {
-    alert('You dont have access!');
+    alert('You dont have access! Please Sign in and try agian!');
     next('/');
   }
 } else {

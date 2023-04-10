@@ -1,17 +1,23 @@
 <template>
+  <div class="card-wrapper">
     <div class="blog-card">
       <h2>{{ title }}</h2>
       <p>{{ content }}</p>
+      <button @click="deleteBlogPost">Delete</button>
     </div>
+  </div>
+
   </template>
   
-  <script>
-  export default {
-    props: {
-      title: String,
-      content: String,
-    },
-  };
+  <script setup>
+  import { useBlogStore } from '../stores/BlogStore'
+//   pass props from Create.vue to make the cards modular and accept dynamic content
+  const props = defineProps(['title', 'content', 'id'])
+  const blogStore = useBlogStore()
+
+  const deleteBlogPost = () => {
+  blogStore.deleteBlogPost(props.id)
+}
   </script>
   
   <style scoped>

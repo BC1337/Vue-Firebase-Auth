@@ -81,15 +81,14 @@ nav a.router-link-exact-active {
 }
 
 .signout-btn {
-    height: 25px;
-    width: 100px;
-    margin-top: -2px;
-    border-radius: 8px;
-    border: none;
-    background-color: #42b983;
-    color: white;
-    font-size: medium;
-    font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: -10px;
   }
   /* dark mode wrapper */
   .dark-mode-wrapper{
@@ -160,7 +159,7 @@ input:checked + .slider:before {
     color: #fff;
   }
 
-  [theme='custom-dark'] h1, h2 {
+  [theme='custom-dark'] h1, h2, h3 {
     color: #42b983;
   }
 

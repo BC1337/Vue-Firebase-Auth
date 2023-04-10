@@ -1,13 +1,24 @@
 <template>
     <div>
         <h1>Feed</h1>
+        <div class="task-output">
+         <BlogCard v-for="task in tasks" :key="task.id" :title="task.title" :content="task.content" />
+        </div>
     </div>
 </template>
 
 <script setup>
+import { useBlogStore } from '@/stores/BlogStore'
+import BlogCard from '@/components/BlogCard.vue';
+// const props = defineProps(['tasks'])
 
+const store = useBlogStore()
+const tasks = store.tasks
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+ .card-wrapper {
+    display: flex;
+    justify-content: center;
+ }
 </style>
