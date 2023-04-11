@@ -179,4 +179,8 @@ input:checked + .slider:before {
   color: #fff;
 }
 
+.burner {
+  color: red;
+}
+
 </style>

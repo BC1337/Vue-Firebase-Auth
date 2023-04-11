@@ -10,7 +10,6 @@
 <script setup>
 import { useBlogStore } from '@/stores/BlogStore'
 import BlogCard from '@/components/BlogCard.vue';
-// const props = defineProps(['tasks'])
 
 const store = useBlogStore()
 const tasks = store.tasks

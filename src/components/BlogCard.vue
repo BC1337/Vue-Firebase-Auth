@@ -3,7 +3,7 @@
     <div class="blog-card">
       <h2>{{ title }}</h2>
       <p>{{ content }}</p>
-      <button @click="deleteBlogPost">Delete</button>
+      <button @click="deleteBlogPost(id)">Delete</button>
     </div>
   </div>
 
@@ -11,8 +11,7 @@
   
   <script setup>
   import { useBlogStore } from '../stores/BlogStore'
-//   pass props from Create.vue to make the cards modular and accept dynamic content
-  const props = defineProps(['title', 'content', 'id'])
+  const props = defineProps(['title', 'content', 'id',])
   const blogStore = useBlogStore()
 
   const deleteBlogPost = () => {

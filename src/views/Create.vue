@@ -17,28 +17,28 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useBlogStore } from '@/stores/BlogStore'
 import { ref } from 'vue'
 
-
-export default {
-  setup() {
     const store = useBlogStore()
     const title = ref('')
     const content = ref('')
 
-    function addTask() {
-      const task = { title: title.value, content: content.value }
+    const addTask = () => {
+      const task = { 
+        title: title.value, 
+        content: content.value,
+
+      }
       store.addTask(task)
       title.value = ''
       content.value = ''
-      alert('Budget Toast... Post successfully added to feed!')
-    }
 
-    return { title, content, addTask}
-  },
+      alert('Budget Toast... Post successfully added to feed!')
 }
+
+
 </script>
 
 <style>
