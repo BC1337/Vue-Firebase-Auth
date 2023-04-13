@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { v4 as uuidv4 } from 'uuid';
 
 export const useBlogStore = defineStore({
   id: 'blog',
@@ -7,6 +8,7 @@ export const useBlogStore = defineStore({
   }),
   actions: {
     addTask(task) {
+      task.id = uuidv4(); // Generate a unique id for the task
       this.tasks.push(task);
       localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
@@ -18,11 +20,11 @@ export const useBlogStore = defineStore({
       }
     },
     editBlogPost(id, newTitle, newContent) {
-      const index = this.tasks.findIndex(task => task.id === id);
-      if (index !== -1) {
+      const task = this.tasks.find(task => task.id === id); // Find the task with the given id
+      if (task) {
         // Update the blog post with the new title and content
-        this.tasks[index].title = newTitle;
-        this.tasks[index].content = newContent;
+        task.title = newTitle;
+        task.content = newContent;
         localStorage.setItem('tasks', JSON.stringify(this.tasks));
       }
     },

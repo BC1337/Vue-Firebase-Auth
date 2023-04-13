@@ -5,7 +5,7 @@
       <p>{{ content }}</p>
       <button class="edit-button" @click="toggleEditMode">Edit</button>
       <button @click="deleteBlogPost(id)">X</button>
-      <form v-if="editMode" @submit.prevent="saveChanges">
+      <form v-if="editMode" @submit.prevent="saveChanges(props.id)">
         <input type="text" v-model="newTitle" placeholder="New title">
         <textarea v-model="newContent" placeholder="New content"></textarea>
         <div class="edit-group">
@@ -27,8 +27,8 @@
   const newTitle = ref('')
   const newContent = ref('')
 
-  const deleteBlogPost = () => {
-    blogStore.deleteBlogPost(props.id)
+  const deleteBlogPost = (id) => {
+    blogStore.deleteBlogPost(id)
   }
 
   const toggleEditMode = () => {
@@ -39,8 +39,8 @@
     newContent.value = props.content
   }
 
-  const saveChanges = () => {
-    blogStore.editBlogPost(props.id, newTitle.value, newContent.value)
+  const saveChanges = (id) => {
+    blogStore.editBlogPost(id, newTitle.value, newContent.value)
     // Exit edit mode
     editMode.value = false
   }

@@ -2,7 +2,13 @@
     <div>
         <h1>Feed</h1>
         <div class="task-output">
-         <BlogCard v-for="task in tasks" :key="task.id" :title="task.title" :content="task.content" />
+         <BlogCard v-for="task in tasks"
+            :key="task.id"
+            :title="task.title"
+            :content="task.content"
+            :id="task.id"
+            :deleteBlogPost="store.deleteBlogPost"
+            />
         </div>
     </div>
 </template>
