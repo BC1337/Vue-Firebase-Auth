@@ -8,22 +8,22 @@
             <router-link to="/register">Register</router-link> 
             <router-link to="/sign-in">Sign-in</router-link>
             </template>
-            
+            <span v-if="isLoggedIn">{{ currentUserEmail }}</span>
             <button class="signout-btn" @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
-            <span v-if="isLoggedIn">{{ currentUser }}</span>
+            <p v-if="isLoggedIn">{{ currentUser }}</p>
         </nav>
     </div>
 </template>
 
 <script setup>
-    import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'vue-router'; 
 
 
   const router = useRouter()
   const isLoggedIn = ref(false)
-
+  const currentUserEmail = ref('');
 
   let auth;
   onMounted(() => {
@@ -31,6 +31,7 @@ import { useRouter } from 'vue-router';
     onAuthStateChanged(auth, (user) => {
       if (user) {
         isLoggedIn.value = true;
+        currentUserEmail.value = user.email;
       } else {
         isLoggedIn.value = false;
       }
@@ -45,6 +46,13 @@ import { useRouter } from 'vue-router';
 </script>
 
 <style scoped>
+span{
+    border: 1px solid #dd5115;
+    padding: 10px;
+    margin-top: -9px;
+    color:#dd5115;
+    font-weight: bold;
+}
     nav {
   display: flex;
   padding: 30px;
