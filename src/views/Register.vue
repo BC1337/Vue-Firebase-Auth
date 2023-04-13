@@ -44,12 +44,14 @@ const signInWithGoogle = () => {
 </script>
 
 <style scoped>
-  .register-wrapper{
+  .register-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 50px;
   }
+
   input {
     width: 400px;
     height: 40px;
@@ -59,6 +61,7 @@ const signInWithGoogle = () => {
     outline: none;
     font-size: medium;
   }
+
   button {
     height: 35px;
     width: 200px;
@@ -69,5 +72,19 @@ const signInWithGoogle = () => {
     color: white;
     font-size: medium;
     font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    .register-wrapper {
+      margin: 20px;
+    }
+
+    input {
+      width: 80%;
+    }
+
+    button {
+      width: 80%;
+    }
   }
 </style>

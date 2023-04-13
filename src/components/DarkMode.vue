@@ -1,6 +1,5 @@
 <template>
     <div class="dark-mode-wrapper">
-        <p>Dark Mode</p>
         <label class="switch">
         <input type="checkbox" v-model="isDark">
         <span class="slider"></span>
@@ -23,8 +22,7 @@ import { useDark } from '@vueuse/core';
 
   /* dark mode wrapper */
   .dark-mode-wrapper{
-    display: block;
-    position: absolute;
+   display: flex;
     float: left;
   }
   .switch {

@@ -21,7 +21,45 @@ export default {
 </script>
 
 <style>
+  .home {
+    text-align: center;
+    margin: 50px;
+  }
+
+  .home p {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .info {
+    margin: 50px;
+  }
+
+  .info p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
   .burner {
-  color: red;
-}
+    color: red;
+  }
+
+  @media screen and (max-width: 768px) {
+    .home {
+      margin: 20px;
+    }
+
+    .home p {
+      font-size: 20px;
+    }
+
+    .info {
+      margin: 20px;
+    }
+
+    .info p {
+      font-size: 16px;
+    }
+  }
 </style>

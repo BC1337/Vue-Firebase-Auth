@@ -21,54 +21,19 @@
 import { useBlogStore } from '@/stores/BlogStore'
 import { ref } from 'vue'
 
-    const store = useBlogStore()
-    const title = ref('')
-    const content = ref('')
+const store = useBlogStore()
+const title = ref('')
+const content = ref('')
 
-    const addTask = () => {
-      const task = { 
-        title: title.value, 
-        content: content.value,
+const addTask = async () => {
+  const task = { 
+    title: title.value, 
+    content: content.value,
+  }
+  await store.addTask(task)
+  title.value = ''
+  content.value = ''
 
-      }
-      store.addTask(task)
-      title.value = ''
-      content.value = ''
-
-      alert('Budget Toast... Post successfully added to feed!')
+  alert('Budget Toast... Post successfully added to feed!')
 }
-
-
 </script>
-
-<style>
-label {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-input,
-textarea {
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 60%;
-  margin-bottom: 1rem;
-}
-
-textarea{
-  height: 30vh;
-}
-
-button {
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-</style>
