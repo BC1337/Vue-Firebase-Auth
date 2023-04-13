@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createPinia } from 'pinia'
-import { useBlogStore } from './stores/BlogStore'
 import router from './router'
+import { useBlogStore } from './stores/BlogStore'
+
 
 
 import { initializeApp } from "firebase/app";
@@ -26,8 +27,7 @@ const pinia = createPinia()
 const app = createApp(App)
 app.use(pinia)
 
-const store = useBlogStore()
-app.provide('store', store)
+app.provide('store', useBlogStore)
 
 app.use(router)
 app.mount('#app')
